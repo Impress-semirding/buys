@@ -2,38 +2,21 @@ var mongoose = require('./../config/mongo'),
     Schema = mongoose.Schema;
 
 var IndianaSchema = new Schema({
-	existingTimes : {type: Number},
-  status : {type: Number},
-  goods : {
-    desc : {type: String},
-    priceBase : {type: Number},
-    gpic : {type: Array},
-    totalTimes : {type: Number},
-    tag : {type: String},
-    gname : {type: String},
-    priceType : {type: Number},
-    addAttributes : {type: Number},
-    property : {type: Number},
-    priceUnit : {type: Number},
-    regularBuyMax : {type: Number},
-    showVideos : {type: Array},
-    price : {type: Number},
-    buyUnit : {type: Number},
-    gid : {type: Number},
-    buyable : {type: Boolean},
-    flagList :{type: Array},
-    brand : {type: Number},
-    wishSetable : {type: Number},
-    typeId : {type: Number},
-    goodsType : {type: Number}
+  totalPeopleNum: { type: Number},
+  presentPeopleNum: { type : Number},
+  shortPeopleNum: { type: Number},
+  startTime: { type: Date, default: Date.now },
+  endTime: { type: Date, default: Date.now },
+  startSec: { type: Number, default: 0},
+  endSec: { type: Number, default: 0},
+  startStr: { type: String, default: ''},
+  endStr: { type: String, default: ''},
+  isActive: {type: Boolean},
+  goodsId: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'product'
   },
-  limitTime : {type: Number},
-  isLimit : {type: Number},
-  period : {type: Number},
-  totalPeriod : {type: Number},
-  isJoined : {type: Number},//判断是否在夺宝中。
-  lastPeriod : {type: Number}
-
+  limit : {type: Number},
 });
 
 

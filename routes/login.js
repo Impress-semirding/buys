@@ -6,6 +6,8 @@ const users = require('./../controller/user');
 function checkUser(userId) {
 	if(typeof userId !== 'number') {
 		return false;
+	} else {
+		return true;
 	}
 }
 
@@ -14,8 +16,6 @@ function checkUser(userId) {
 router.post('/', function(req, res, next) {
 	const userId = req.body.userId;
 	const username = req.body.name;
-	console.log(req.body);
-	console.log(userId);
 	if(!checkUser(userId)) {
 		return res.json({ 'login': 'fail', msg: '类型错误'});
 	}
@@ -30,7 +30,6 @@ router.post('/', function(req, res, next) {
     });
 		users.hasUser(userId)
 		.then((user) => {
-			console.log(req.user);
 			if(!user.length) {
 				return users.insert(req.user)
 			} else {

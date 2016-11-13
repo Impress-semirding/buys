@@ -4,8 +4,8 @@ var mongoose = require('./../config/mongo'),
 var OrderSchema = new Schema({          
   createTime : { type: Date },
   w_id: { type: String },
-  product_id: { type: String }
-
+  indiana_id : { type: String },
+  acount: { type: Number },
 });
 
 

@@ -11,6 +11,11 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var indiana = require('./routes/indiana');
 const login = require('./routes/login');
+const order = require('./routes/order');
+const mine = require('./routes/mine');
+const advertise = require('./routes/advertise');
+const userInfo = require('./routes/user');
+const product = require('./routes/product');
 var port = process.env.PORT || 8888;
 const numCPUs = require('os').cpus().length;
 const cluster = require('cluster');
@@ -71,6 +76,12 @@ if (cluster.isMaster) {
   app.use('/', routes);
   app.use('/login', login);
   app.use('/indiana', indiana);
+  app.use('/order', order);
+  app.use('/mine', mine);
+  app.use('/advertise', advertise);
+  app.use('/user', userInfo);
+  app.use('/product', product);
+
 
 
   // catch 404 and forward to error handler
