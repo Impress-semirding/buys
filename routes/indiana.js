@@ -6,23 +6,21 @@ const getClientIp = require('./../config/getAddress');
 
 /* GET users listing. */
 router.get('/list', function(req, res, next) {
-	// res.writeHead(200, { 'Content-Type': 'application/json; charset=UTF-8' });
 	user.getList()
-	.then((doc) => {
-		if (!doc) {
-			logger.info(getClientIp(req) + 'fail');
+	.then((data) => {
+		if (!data) {
+			logger.info(`${getClientIp(req)}fail`);
 		} else {
-			res.json({ 'data': doc });
+			res.json({ data });
 		}
 	})
 });
 
 router.get('/detail', function(req, res, next) {
-	// res.writeHead(200, { 'Content-Type': 'application/json; charset=UTF-8' });
 	const queryId = req.query.id;
 	user.getDetail(queryId, function(data) {
 		if(!data) {
-			logger.info(getClientIp(req) + 'fail');
+			logger.info(`${getClientIp(req)}fail`);
 		} else {
 			res.json(data);
 		}
@@ -30,10 +28,10 @@ router.get('/detail', function(req, res, next) {
 });
 
 router.get('/insert', function(req, res, next) {
-	// res.writeHead(200, { 'Content-Type': 'application/json; charset=UTF-8' });
+	const sucess = '插入假数据成功';
 	user.insert();
 	logger.info(getClientIp(req) + 'login');
-  res.json({ 'sucess': '插入假数据成功' });
+  res.json({ sucess });
 });
 
 
