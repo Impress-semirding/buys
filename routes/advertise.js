@@ -14,7 +14,7 @@ router.get('/list', function(req, res, next) {
 		} else {
 			res.json({ 'detailImages': doc });
 		}
-	})
+	});
 });
 
 router.get('/insert', function(req, res, next) {

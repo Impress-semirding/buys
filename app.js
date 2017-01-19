@@ -16,6 +16,7 @@ const mine = require('./routes/mine');
 const advertise = require('./routes/advertise');
 const userInfo = require('./routes/user');
 const product = require('./routes/product');
+const web = require('./routes/web');
 var port = process.env.PORT || 8888;
 const numCPUs = require('os').cpus().length;
 const cluster = require('cluster');
@@ -40,7 +41,8 @@ if (cluster.isMaster) {
 
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'jade');
+  app.set('view engine', 'html');
+  app.engine('html', require('ejs-mate'));
 
   // uncomment after placing your favicon in /public
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -81,6 +83,7 @@ if (cluster.isMaster) {
   app.use('/advertise', advertise);
   app.use('/user', userInfo);
   app.use('/product', product);
+  app.use('/web', web);
 
 
 

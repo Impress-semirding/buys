@@ -4,7 +4,7 @@ const users = require('./../controller/user');
 // const userController = require('./../controller/user');
 
 function checkUser(userId) {
-	if(typeof userId !== 'number') {
+	if (typeof userId !== 'number') {
 		return false;
 	} else {
 		return true;
