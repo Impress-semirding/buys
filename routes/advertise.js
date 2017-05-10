@@ -17,7 +17,7 @@ router.get('/list', function(req, res, next) {
 	});
 });
 
-router.get('/insert', function(req, res, next) {
+router.post('/insert', function(req, res, next) {
 	// res.writeHead(200, { 'Content-Type': 'application/json; charset=UTF-8' });
 	advertise.insert();
   res.json({ 'sucess': '插入假数据成功' });
